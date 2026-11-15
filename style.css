@@ -17,9 +17,9 @@ body { min-height: 100vh; min-height: 100dvh; font-family: "Inter", -apple-syste
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 800;
-  letter-spacing: -.065em;
-  line-height: .92;
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: .98;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
   font-size: clamp(5.5rem, min(31vw, 57vh), 28rem);
