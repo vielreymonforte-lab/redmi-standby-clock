@@ -1,5 +1,4 @@
-
-const CACHE = "redmi-standby-v4";
+const CACHE = "redmi-standby-premium-v1";
 const FILES = [
   "./",
   "./index.html",
@@ -10,19 +9,14 @@ const FILES = [
 ];
 
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(FILES))
-  );
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)));
   self.skipWaiting();
 });
 
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(key => key !== CACHE)
-          .map(key => caches.delete(key))
-      )
+      Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))
     )
   );
   self.clients.claim();
@@ -31,9 +25,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   if (new URL(event.request.url).origin === location.origin) {
     event.respondWith(
-      caches.match(event.request).then(cached =>
-        cached || fetch(event.request)
-      )
+      caches.match(event.request).then(cached => cached || fetch(event.request))
     );
   }
 });
