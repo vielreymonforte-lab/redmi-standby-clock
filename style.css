@@ -66,5 +66,5 @@ input[type=time] { background: #29292e; border: 1px solid #45454b; border-radius
 @media (max-height: 390px) and (orientation: landscape) {
   .screen { padding-top: 3vh; padding-bottom: 3vh; }
   .details-side { height: 85%; }
-  .clock { font-size: min(13vw, 31vh); max-width: 100%; letter-spacing: -.005em; line-height: 1.06; }
+  .clock { font-size: min(10.5vw, 27vh); max-width: 100%; letter-spacing: 0; line-height: 1.06; }
 }
