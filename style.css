@@ -18,11 +18,13 @@ body { min-height: 100vh; min-height: 100dvh; font-family: "Inter", -apple-syste
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
-  letter-spacing: -.045em;
-  line-height: .98;
+  letter-spacing: -.015em;
+  line-height: 1.02;
+  font-kerning: normal;
+  font-feature-settings: "tnum" 1;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
-  font-size: clamp(5.5rem, min(31vw, 57vh), 28rem);
+  font-size: clamp(5rem, min(26vw, 52vh), 26rem);
 }
 .details-side {
   height: 75%; min-height: 0; display: flex; flex-direction: column;
@@ -63,5 +65,5 @@ input[type=time] { background: #29292e; border: 1px solid #45454b; border-radius
 @media (max-height: 390px) and (orientation: landscape) {
   .screen { padding-top: 3vh; padding-bottom: 3vh; }
   .details-side { height: 85%; }
-  .clock { font-size: min(31vw, 58vh); }
+  .clock { font-size: min(26vw, 52vh); }
 }
