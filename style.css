@@ -56,7 +56,7 @@ input[type=time] { background: #29292e; border: 1px solid #45454b; border-radius
 .save { width: 100%; border: 0; border-radius: 99px; padding: 12px; background: var(--blue); color: #07101f; font-weight: 700; }
 @media (orientation: portrait) {
   .screen { grid-template-columns: 1fr; grid-template-rows: 1fr auto; gap: 3vh; padding: 7vw 7vw 10vh; }
-  .clock { font-size: clamp(5.25rem, 24.5vw, 12.5rem); }
+  .clock { font-size: clamp(5.1rem, 23.5vw, 12rem); }
   .details-side { height: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .alarm { grid-column: 1 / -1; }
   .date { font-size: clamp(1.3rem, 6vw, 2rem); }
