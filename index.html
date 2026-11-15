@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Apple-inspired StandBy clock for Redmi Note 9S.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>Redmi StandBy</title>
+</head>
+<body>
+  <main class="screen">
+    <section class="clock-side" aria-label="Current time">
+      <div id="clock" class="clock">00:00</div>
+    </section>
+
+    <aside class="details-side">
+      <section class="date">
+        <span id="weekday">SUN</span>
+        <span id="date">15</span>
+      </section>
+
+      <section class="weather" aria-label="Madrid weather">
+        <div class="city">Madrid</div>
+        <div class="weather-main">
+          <span id="weather-icon" class="weather-icon" aria-hidden="true">☀</span>
+          <span id="temperature" class="temperature">--°</span>
+        </div>
+        <div id="condition" class="condition">Getting weather…</div>
+      </section>
+
+      <section class="alarm" aria-label="Next alarm">
+        <div class="alarm-main">
+          <span class="alarm-icon" aria-hidden="true">◷</span>
+          <span id="alarm-time">07:00</span>
+        </div>
+        <div class="alarm-caption">Next Alarm</div>
+      </section>
+    </aside>
+
+    <button class="settings-button" id="settings-open" aria-label="Clock settings">•••</button>
+  </main>
+
+  <dialog id="settings-dialog">
+    <form id="settings-form" method="dialog">
+      <header><h1>StandBy settings</h1><button class="close" value="cancel" aria-label="Close">×</button></header>
+      <label class="setting"><span>24-hour clock</span><input id="format-24" type="checkbox" checked></label>
+      <label class="setting"><span>Show weather</span><input id="show-weather" type="checkbox" checked></label>
+      <label class="setting"><span>Next alarm display</span><input id="alarm-input" type="time" value="07:00"></label>
+      <p class="disclaimer">The alarm is a visual reminder only. Use your Redmi Clock app for a reliable audible alarm.</p>
+      <footer><button class="save" value="save">Save settings</button></footer>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

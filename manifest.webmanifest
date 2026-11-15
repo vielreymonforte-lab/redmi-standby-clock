@@ -1,0 +1,12 @@
+{
+  "name": "Redmi StandBy Clock",
+  "short_name": "StandBy",
+  "description": "Minimal Apple-inspired clock and Madrid weather display",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
