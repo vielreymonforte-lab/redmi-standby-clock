@@ -1,5 +1,5 @@
 
-const CACHE = "redmi-standby-v3";
+const CACHE = const CACHE = "redmi-standby-v4";
 const FILES = [
   "./",
   "./index.html",
