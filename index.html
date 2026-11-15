@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Premium StandBy clock for Redmi Note 9S.">
+  <meta name="description" content="Minimal Apple-inspired StandBy clock for Redmi.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
@@ -13,38 +13,26 @@
 <body>
   <main class="dashboard">
     <header class="topbar">
-      <div class="date-line">
+      <div class="date-badge">
+        <span class="calendar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M7.5 3v4M16.5 3v4M4 9.5h16"/></svg>
+        </span>
+        <span class="badge-divider"></span>
         <span id="weekday">SUNDAY</span>
         <span id="date">15</span>
       </div>
-      <div class="location"><span class="location-dot" aria-hidden="true">●</span> MADRID, SPAIN</div>
+
+      <div class="weather-badge" aria-label="Current weather in Madrid">
+        <span id="weather-icon" class="weather-icon" aria-hidden="true">⛅</span>
+        <span class="badge-divider"></span>
+        <span id="temperature" class="temperature">--°</span>
+        <span id="condition" class="condition">Getting weather…</span>
+      </div>
     </header>
 
     <section class="clock-panel" aria-label="Current time">
       <div id="clock" class="clock">00:00</div>
     </section>
-
-    <aside class="info-panel" aria-label="Weather and alarm">
-      <section class="info-card weather-card" aria-label="Madrid weather">
-        <div class="card-icon weather-icon-wrap">
-          <span id="weather-icon" class="weather-icon" aria-hidden="true">⛅</span>
-        </div>
-        <div class="card-copy">
-          <div class="card-label">WEATHER</div>
-          <div id="temperature" class="card-value">--°</div>
-          <div id="condition" class="card-subtitle">Getting weather…</div>
-        </div>
-      </section>
-
-      <section class="info-card alarm-card" aria-label="Next alarm">
-        <div class="card-icon alarm-icon" aria-hidden="true">◷</div>
-        <div class="card-copy">
-          <div class="card-label">NEXT ALARM</div>
-          <div id="alarm-time" class="card-value alarm-value">07:00</div>
-          <div class="card-subtitle">Alarm reminder</div>
-        </div>
-      </section>
-    </aside>
 
     <button class="settings-button" id="settings-open" aria-label="Clock settings">•••</button>
   </main>
@@ -53,9 +41,7 @@
     <form id="settings-form" method="dialog">
       <header class="dialog-header"><h1>StandBy settings</h1><button class="close" value="cancel" aria-label="Close">×</button></header>
       <label class="setting"><span>24-hour clock</span><input id="format-24" type="checkbox" checked></label>
-      <label class="setting"><span>Show weather</span><input id="show-weather" type="checkbox" checked></label>
-      <label class="setting"><span>Next alarm display</span><input id="alarm-input" type="time" value="07:00"></label>
-      <p class="disclaimer">The alarm is a visual reminder only. Use your Redmi Clock app for a reliable audible alarm.</p>
+      <p class="disclaimer">Weather is refreshed automatically. The display uses Madrid weather.</p>
       <footer><button class="save" value="save">Save settings</button></footer>
     </form>
   </dialog>
