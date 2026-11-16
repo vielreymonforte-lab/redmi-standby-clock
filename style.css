@@ -1,115 +1,169 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 * { box-sizing: border-box; }
 :root {
   --blue: #82aaff;
   --blue-light: #91c6ff;
   --white: #f7f8fb;
-  --muted: #b4bac4;
-  --badge-bg: rgba(13, 17, 23, .76);
-  --badge-border: rgba(135, 153, 174, .34);
+  --muted: #b8bec8;
 }
 html, body {
-  margin: 0; width: 100%; height: 100%; overflow: hidden;
-  background: #000; color: var(--white);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  color: var(--white);
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 body { min-height: 100vh; min-height: 100dvh; }
-.dashboard {
-  position: relative; width: 100vw; height: 100vh; height: 100dvh;
-  padding: clamp(18px, 3.6vh, 42px) clamp(22px, 4vw, 64px);
-  background: #000;
+.standby {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: clamp(14px, 3.2vh, 34px) clamp(16px, 3vw, 44px);
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
-  row-gap: clamp(10px, 2vh, 24px);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
+  align-items: center;
+  gap: clamp(8px, 1.8vh, 22px);
+  background: #000;
 }
-.topbar {
-  width: 100%; min-width: 0;
-  display: flex; justify-content: space-between; align-items: center;
-  gap: clamp(12px, 2vw, 28px);
-}
-.date-badge, .weather-badge {
-  min-height: clamp(54px, 10vh, 94px);
-  display: flex; align-items: center;
-  border: 1px solid var(--badge-border);
-  border-radius: 999px;
-  background: linear-gradient(145deg, rgba(19,24,31,.86), rgba(7,10,14,.82));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
-  padding: 0 clamp(15px, 2.8vw, 38px);
-  gap: clamp(10px, 1.5vw, 22px);
+.date-row {
+  grid-row: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .28em;
   white-space: nowrap;
+  font-size: clamp(.9rem, 2.15vw, 1.9rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.045em;
 }
-.date-badge { font-size: clamp(1.05rem, 2.6vw, 2.4rem); font-weight: 800; letter-spacing: -.035em; }
 #weekday {
   color: var(--blue);
-  background: linear-gradient(120deg, #91c6ff, #6fa4f4);
-  -webkit-background-clip: text; background-clip: text;
+  background: linear-gradient(120deg, #91c6ff 0%, #82aaff 60%, #75a2f4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #date { color: var(--white); }
-.calendar-icon { width: clamp(22px, 3.4vw, 42px); height: clamp(22px, 3.4vw, 42px); display: block; }
-.calendar-icon svg { width: 100%; height: 100%; stroke: var(--blue-light); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.badge-divider { width: 1px; height: 1.65em; background: rgba(174,190,210,.48); flex: 0 0 1px; }
-.weather-badge { padding-left: clamp(14px, 2vw, 28px); padding-right: clamp(16px, 2.5vw, 34px); }
-.weather-icon { font-size: clamp(1.7rem, 3.4vw, 3.2rem); line-height: 1; }
-.temperature { color: #fff; font-size: clamp(1.35rem, 2.8vw, 2.6rem); font-weight: 750; letter-spacing: -.045em; }
-.condition { color: var(--muted); font-size: clamp(.75rem, 1.45vw, 1.35rem); font-weight: 500; }
-.clock-panel {
-  min-width: 0; min-height: 0; width: 100%;
-  display: flex; align-items: center; justify-content: center;
+.clock-area {
+  grid-row: 2;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: visible;
 }
 .clock {
-  width: 100%; text-align: center; white-space: nowrap;
-  font-size: clamp(7rem, 31vw, 29rem);
-  line-height: .9; font-weight: 800;
-  letter-spacing: -.065em; font-variant-numeric: tabular-nums;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  font-size: clamp(6rem, 32vw, 28rem);
+  line-height: .9;
+  font-weight: 800;
+  letter-spacing: -.067em;
+  font-variant-numeric: tabular-nums;
   color: var(--blue);
-  background: linear-gradient(150deg, #9bd0ff 0%, #82aaff 52%, #71a1f4 100%);
-  -webkit-background-clip: text; background-clip: text;
+  background: linear-gradient(145deg, #9bd0ff 0%, #82aaff 52%, #719ff0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  transform: scaleX(.98);
+}
+.weather-pill {
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.5vw, 20px);
+  min-height: clamp(46px, 8.5vh, 76px);
+  max-width: min(92vw, 560px);
+  padding: 0 clamp(16px, 2.4vw, 30px);
+  border: 1px solid rgba(145, 159, 178, .28);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(17, 21, 27, .92), rgba(7, 10, 14, .92));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
+  white-space: nowrap;
+}
+.weather-icon {
+  font-size: clamp(1.45rem, 3vw, 2.5rem);
+  line-height: 1;
+}
+.divider {
+  width: 1px;
+  height: 1.65em;
+  background: rgba(174, 190, 210, .48);
+}
+.temperature {
+  color: #fff;
+  font-size: clamp(1.25rem, 2.7vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+.condition {
+  color: var(--muted);
+  font-size: clamp(.75rem, 1.45vw, 1.15rem);
+  font-weight: 500;
 }
 .settings-button {
-  position: absolute; right: 8px; bottom: 3px; z-index: 2;
-  color: #626a77; background: transparent; border: 0;
-  font-size: 18px; padding: 7px 10px;
+  position: absolute;
+  right: 8px;
+  bottom: 3px;
+  color: #626a77;
+  background: transparent;
+  border: 0;
+  font-size: 18px;
+  padding: 7px 10px;
 }
 dialog {
-  width: min(90vw, 420px); border: 1px solid #343a45;
-  border-radius: 22px; padding: 22px; color: white; background: #171b22;
+  width: min(90vw, 420px);
+  border: 1px solid #343a45;
+  border-radius: 22px;
+  padding: 22px;
+  color: white;
+  background: #171b22;
 }
 dialog::backdrop { background: #000b; backdrop-filter: blur(5px); }
-.dialog-header, footer, .setting { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.dialog-header, footer, .setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
 .dialog-header h1 { margin: 0 0 18px; font-size: 21px; }
 .close { color: #aaa; border: 0; background: none; font-size: 28px; }
 .setting { border-top: 1px solid #383e49; padding: 15px 0; font-size: 15px; }
 input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--blue); }
 .disclaimer { color: #aaa; font-size: 12px; line-height: 1.5; }
-.save { width: 100%; border: 0; border-radius: 99px; padding: 12px; background: var(--blue); color: #07101f; font-weight: 700; }
+.save {
+  width: 100%; border: 0; border-radius: 99px; padding: 12px;
+  background: var(--blue); color: #07101f; font-weight: 700;
+}
 
 @media (orientation: portrait) {
-  .dashboard {
-    padding: max(16px, env(safe-area-inset-top)) 4vw max(24px, env(safe-area-inset-bottom));
-    grid-template-rows: auto minmax(0, 1fr);
-    row-gap: 5vh;
+  .standby {
+    padding: max(16px, env(safe-area-inset-top)) 3vw max(24px, env(safe-area-inset-bottom));
+    gap: 4vh;
   }
-  .topbar { align-items: flex-start; gap: 8px; }
-  .date-badge, .weather-badge {
-    min-height: 48px; padding: 0 10px; gap: 7px;
-    border-radius: 18px;
+  .date-row { font-size: clamp(.8rem, 3vw, 1.2rem); }
+  .clock { font-size: clamp(4.7rem, 19vw, 9rem); letter-spacing: -.065em; }
+  .weather-pill {
+    min-height: 46px;
+    gap: 9px;
+    padding: 0 15px;
   }
-  .date-badge { font-size: clamp(.78rem, 3.4vw, 1.1rem); }
-  .calendar-icon { width: 18px; height: 18px; }
-  .weather-icon { font-size: 1.25rem; }
-  .temperature { font-size: clamp(1rem, 4vw, 1.4rem); }
-  .condition { font-size: clamp(.55rem, 2.3vw, .75rem); }
-  .badge-divider { height: 1.35em; }
-  .clock { font-size: clamp(4.5rem, 18vw, 9rem); letter-spacing: -.06em; }
+  .weather-icon { font-size: 1.35rem; }
+  .temperature { font-size: 1.15rem; }
+  .condition { font-size: .7rem; }
 }
 @media (max-height: 390px) and (orientation: landscape) {
-  .dashboard { padding-top: 3vh; padding-bottom: 3vh; row-gap: 1vh; }
-  .date-badge, .weather-badge { min-height: 16vh; }
-  .clock { font-size: min(34vw, 67vh); }
+  .standby { padding-top: 2vh; padding-bottom: 2vh; gap: 1vh; }
+  .date-row { font-size: clamp(.8rem, 2.1vw, 1.25rem); }
+  .clock { font-size: min(32vw, 69vh); }
+  .weather-pill { min-height: 13vh; }
 }

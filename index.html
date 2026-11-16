@@ -4,34 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Minimal Apple-inspired StandBy clock for Redmi.">
+  <meta name="description" content="Minimal Redmi StandBy clock">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <title>Redmi StandBy</title>
 </head>
 <body>
-  <main class="dashboard">
-    <header class="topbar">
-      <div class="date-badge">
-        <span class="calendar-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M7.5 3v4M16.5 3v4M4 9.5h16"/></svg>
-        </span>
-        <span class="badge-divider"></span>
-        <span id="weekday">SUNDAY</span>
-        <span id="date">15</span>
-      </div>
-
-      <div class="weather-badge" aria-label="Current weather in Madrid">
-        <span id="weather-icon" class="weather-icon" aria-hidden="true">⛅</span>
-        <span class="badge-divider"></span>
-        <span id="temperature" class="temperature">--°</span>
-        <span id="condition" class="condition">Getting weather…</span>
-      </div>
+  <main class="standby">
+    <header class="date-row" aria-label="Date">
+      <span id="weekday">SUNDAY</span>
+      <span id="date">15</span>
     </header>
 
-    <section class="clock-panel" aria-label="Current time">
+    <section class="clock-area" aria-label="Current time">
       <div id="clock" class="clock">00:00</div>
+    </section>
+
+    <section class="weather-pill" aria-label="Current weather in Madrid">
+      <span id="weather-icon" class="weather-icon" aria-hidden="true">⛅</span>
+      <span class="divider" aria-hidden="true"></span>
+      <span id="temperature" class="temperature">--°</span>
+      <span id="condition" class="condition">Getting weather…</span>
     </section>
 
     <button class="settings-button" id="settings-open" aria-label="Clock settings">•••</button>
@@ -39,9 +33,15 @@
 
   <dialog id="settings-dialog">
     <form id="settings-form" method="dialog">
-      <header class="dialog-header"><h1>StandBy settings</h1><button class="close" value="cancel" aria-label="Close">×</button></header>
-      <label class="setting"><span>24-hour clock</span><input id="format-24" type="checkbox" checked></label>
-      <p class="disclaimer">Weather is refreshed automatically. The display uses Madrid weather.</p>
+      <header class="dialog-header">
+        <h1>StandBy settings</h1>
+        <button class="close" value="cancel" aria-label="Close">×</button>
+      </header>
+      <label class="setting">
+        <span>24-hour clock</span>
+        <input id="format-24" type="checkbox" checked>
+      </label>
+      <p class="disclaimer">Weather is refreshed automatically for Madrid.</p>
       <footer><button class="save" value="save">Save settings</button></footer>
     </form>
   </dialog>

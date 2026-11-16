@@ -6,9 +6,9 @@ function updateClock() {
   const now = new Date();
   el("clock").textContent = is24
     ? `${pad(now.getHours())}:${pad(now.getMinutes())}`
-    : now.toLocaleTimeString([], {hour: "numeric", minute: "2-digit"});
-  el("weekday").textContent = now.toLocaleDateString("en-GB", {weekday: "long"}).toUpperCase();
-  el("date").textContent = now.toLocaleDateString("en-GB", {day: "2-digit"});
+    : now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  el("weekday").textContent = now.toLocaleDateString("en-GB", { weekday: "long" }).toUpperCase();
+  el("date").textContent = now.toLocaleDateString("en-GB", { day: "2-digit" });
 }
 
 async function updateWeather() {
@@ -20,12 +20,12 @@ async function updateWeather() {
     const code = data.current.weather_code;
     const descriptions = [
       [[0], "☀️", "Clear"],
-      [[1,2,3], "⛅", "Partly cloudy"],
-      [[45,48], "🌫️", "Fog"],
-      [[51,53,55,56,57], "🌦️", "Drizzle"],
-      [[61,63,65,66,67,80,81,82], "🌧️", "Rain"],
-      [[71,73,75,77,85,86], "❄️", "Snow"],
-      [[95,96,99], "⛈️", "Thunderstorm"]
+      [[1, 2, 3], "⛅", "Partly cloudy"],
+      [[45, 48], "🌫️", "Fog"],
+      [[51, 53, 55, 56, 57], "🌦️", "Drizzle"],
+      [[61, 63, 65, 66, 67, 80, 81, 82], "🌧️", "Rain"],
+      [[71, 73, 75, 77, 85, 86], "❄️", "Snow"],
+      [[95, 96, 99], "⛈️", "Thunderstorm"]
     ];
     const match = descriptions.find(([codes]) => codes.includes(code)) || [[], "☁️", "Cloudy"];
     el("weather-icon").textContent = match[1];
@@ -42,7 +42,6 @@ el("settings-form").addEventListener("submit", () => {
   localStorage.setItem("is24", is24);
   updateClock();
 });
-
 el("format-24").checked = is24;
 updateClock();
 updateWeather();
