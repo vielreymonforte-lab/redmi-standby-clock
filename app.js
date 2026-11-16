@@ -4,9 +4,17 @@ let is24 = localStorage.getItem("is24") !== "false";
 
 function updateClock() {
   const now = new Date();
-  el("clock").textContent = is24
-    ? `${pad(now.getHours())}:${pad(now.getMinutes())}`
-    : now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+  if (is24) {
+    el("clock").textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  } else {
+    const parts = new Intl.DateTimeFormat([], {
+      hour: "numeric", minute: "2-digit", hour12: true
+    }).formatToParts(now);
+    const hour = parts.find(part => part.type === "hour").value;
+    const minute = parts.find(part => part.type === "minute").value;
+    const period = parts.find(part => part.type === "dayPeriod").value;
+    el("clock").innerHTML = `${hour}:${minute}<span class="ampm">${period}</span>`;
+  }
   el("weekday").textContent = now.toLocaleDateString("en-GB", { weekday: "long" }).toUpperCase();
   el("date").textContent = now.toLocaleDateString("en-GB", { day: "2-digit" });
 }

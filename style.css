@@ -27,7 +27,7 @@ body { min-height: 100vh; min-height: 100dvh; }
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: clamp(8px, 1.7vh, 20px);
+  gap: clamp(3px, .8vh, 9px);
   background: #000;
 }
 .date-row {
@@ -39,6 +39,7 @@ body { min-height: 100vh; min-height: 100dvh; }
   white-space: nowrap;
   font-size: clamp(.9rem, 2.15vw, 1.9rem);
   line-height: 1;
+  transform: translateY(clamp(18px, 3.8vh, 32px));
   font-weight: 800;
   letter-spacing: -.045em;
 }
@@ -75,6 +76,16 @@ body { min-height: 100vh; min-height: 100dvh; }
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.clock .ampm {
+  display: inline-block;
+  margin-left: .12em;
+  font-size: .12em;
+  font-weight: 600;
+  letter-spacing: 0;
+  vertical-align: baseline;
+  color: var(--blue);
+  -webkit-text-fill-color: var(--blue);
+}
 .weather-pill {
   flex: 0 0 auto;
   display: flex;
@@ -84,6 +95,7 @@ body { min-height: 100vh; min-height: 100dvh; }
   min-height: clamp(46px, 8.5vh, 76px);
   max-width: min(92vw, 560px);
   padding: 0 clamp(16px, 2.4vw, 30px);
+  transform: translateY(clamp(-36px, -4.4vh, -19px));
   border: 1px solid rgba(145, 159, 178, .28);
   border-radius: 999px;
   background: linear-gradient(145deg, rgba(17, 21, 27, .92), rgba(7, 10, 14, .92));
@@ -150,19 +162,22 @@ input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--blue); }
     padding: max(16px, env(safe-area-inset-top)) 3vw max(24px, env(safe-area-inset-bottom));
     gap: 2.5vh;
   }
-  .date-row { font-size: clamp(.8rem, 3vw, 1.2rem); }
+  .date-row { font-size: clamp(.8rem, 3vw, 1.2rem); transform: translateY(12px); }
   .clock { font-size: clamp(4.7rem, 19vw, 9rem); letter-spacing: -.065em; }
   .weather-pill {
     min-height: 46px;
     gap: 9px;
     padding: 0 15px;
+    transform: translateY(-16px);
   }
   .weather-icon { font-size: 1.35rem; }
   .temperature { font-size: 1.15rem; }
   .condition { font-size: .7rem; }
 }
 @media (max-height: 390px) and (orientation: landscape) {
-  .standby { padding-top: 2vh; padding-bottom: 2vh; gap: 1.2vh; }
+  .standby { padding-top: 2vh; padding-bottom: 2vh; gap: .6vh; }
+  .date-row { transform: translateY(18px); }
+  .weather-pill { transform: translateY(-22px); }
   .date-row { font-size: clamp(.8rem, 2.1vw, 1.25rem); }
   .clock { font-size: min(32vw, 69vh); }
   .weather-pill { min-height: 13vh; }
