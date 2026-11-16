@@ -22,16 +22,16 @@ body { min-height: 100vh; min-height: 100dvh; }
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  padding: clamp(14px, 3.2vh, 34px) clamp(16px, 3vw, 44px);
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  justify-items: center;
+  padding: clamp(12px, 2.2vh, 24px) clamp(16px, 3vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: clamp(8px, 1.8vh, 22px);
+  gap: clamp(8px, 1.7vh, 20px);
   background: #000;
 }
 .date-row {
-  grid-row: 1;
+  flex: 0 0 auto;
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -51,7 +51,7 @@ body { min-height: 100vh; min-height: 100dvh; }
 }
 #date { color: var(--white); }
 .clock-area {
-  grid-row: 2;
+  flex: 0 1 auto;
   width: 100%;
   min-width: 0;
   min-height: 0;
@@ -76,7 +76,7 @@ body { min-height: 100vh; min-height: 100dvh; }
   -webkit-text-fill-color: transparent;
 }
 .weather-pill {
-  grid-row: 3;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +148,7 @@ input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--blue); }
 @media (orientation: portrait) {
   .standby {
     padding: max(16px, env(safe-area-inset-top)) 3vw max(24px, env(safe-area-inset-bottom));
-    gap: 4vh;
+    gap: 2.5vh;
   }
   .date-row { font-size: clamp(.8rem, 3vw, 1.2rem); }
   .clock { font-size: clamp(4.7rem, 19vw, 9rem); letter-spacing: -.065em; }
@@ -162,7 +162,7 @@ input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--blue); }
   .condition { font-size: .7rem; }
 }
 @media (max-height: 390px) and (orientation: landscape) {
-  .standby { padding-top: 2vh; padding-bottom: 2vh; gap: 1vh; }
+  .standby { padding-top: 2vh; padding-bottom: 2vh; gap: 1.2vh; }
   .date-row { font-size: clamp(.8rem, 2.1vw, 1.25rem); }
   .clock { font-size: min(32vw, 69vh); }
   .weather-pill { min-height: 13vh; }
