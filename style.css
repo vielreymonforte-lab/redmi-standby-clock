@@ -164,12 +164,12 @@ body {
 .save-note { color:var(--muted); font-size:11px; margin:12px 2px 0; }
 @media (orientation:landscape) {
   .screen { padding-top:15vh; padding-bottom:16vh; }
-  .greeting { min-height:13%; }
+  .greeting { min-height:13%; transform:translateY(10vh); }
   .dock { min-height:14%; }
 }
 @media (max-height:460px) and (orientation:landscape) {
   .screen { padding:5vh 5vw 8vh; }
-  .greeting { font-size:clamp(21px,5vh,42px); min-height:12%; }
+  .greeting { font-size:clamp(21px,5vh,42px); min-height:12%; transform:translateY(7vh); }
   .clock { font-size:min(33vw,56vh); }
   .dock { min-height:15%; width:min(60%,900px); }
   .widget { width:clamp(52px,11vh,82px); height:clamp(52px,11vh,82px); }
