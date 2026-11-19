@@ -163,7 +163,7 @@ body {
 .add-task button { width:44px; border:0; border-radius:12px; background:var(--sage); color:var(--bg); font-size:25px; cursor:pointer; }
 .save-note { color:var(--muted); font-size:11px; margin:12px 2px 0; }
 @media (orientation:landscape) {
-  .screen { padding-top:8.5vh; padding-bottom:9.5vh; }
+  .screen { padding-top:15vh; padding-bottom:16vh; }
   .greeting { min-height:13%; }
   .dock { min-height:14%; }
 }

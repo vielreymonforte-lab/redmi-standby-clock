@@ -1,5 +1,5 @@
 // Versioned cache: bump this string whenever the app shell changes.
-const CACHE = "redmi-standby-clock-v11-master-design";
+const CACHE = "redmi-standby-clock-v12-master-design";
 const FILES = ["./", "./index.html", "./style.css", "./app.js", "./manifest.webmanifest", "./icon.svg"];
 
 self.addEventListener("install", event => {
