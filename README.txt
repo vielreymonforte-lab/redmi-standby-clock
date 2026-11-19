@@ -1,44 +1,36 @@
-REDMI STANDBY CLOCK — MATCHED REFERENCE BUILD
+REDMI STANDBY CLOCK — V11 MASTER DESIGN BUILD
 
-This version recreates the supplied 1670x942 reference layout:
-- Deep midnight background
-- Warm ivory greeting and hour digits
-- Muted sage minute digits and circular widget outlines
-- Champagne greeting icon and weather crescent
-- Oversized centered 24-hour clock
-- Four small circular widgets distributed across a centered 60%-width dock
-- No date header; greeting changes automatically by local time
+Design is locked to the supplied reference image:
+- Pure black background
+- Greeting and weather icon at the top
+- Large centered 24-hour clock
+- Warm cream hours, sage-green minutes and ring accents, gray colon
+- Four bottom widgets in the exact order: Date, Weather, Spotify, To Do
+- No extra widgets or layout changes
+
 
 FUNCTIONS
-- Live local 24-hour clock and dynamic greeting
-- Date widget shows day number; tap to see full date
-- Weather fetched from Open-Meteo for Madrid by default
-- Greeting icon automatically changes to match current weather (sun, clouds, rain, fog, snow, or thunderstorm)
-- Spotify circle opens Spotify
-- To Do opens an interactive checklist saved in local browser storage
-- PWA installation support and offline app-shell cache
-- Screen Wake Lock requested while visible, if supported
+- Live local 24-hour clock
+- Greeting schedule: Morning 01:00–11:59; Afternoon 12:00–16:59; Evening 17:00–00:59
+- Weather from Open-Meteo using Madrid coordinates as default; updates every 30 minutes
+- Weather icon in both greeting and Weather circle
+- Date widget shows today's day number; tap to reveal full date
+- Spotify opens Spotify in a new tab
+- To Do list lets you add, check off and delete tasks; tasks are saved on this phone
+- To Do badge shows remaining tasks, including 0
+- Screen Wake Lock is requested when visible, if supported by browser/device
+- PWA install support
+- Service worker cache version updated and HTML navigation uses network-first strategy to reduce stale deployments
 
-WEATHER LOCATION
-Edit latitude and longitude in app.js to change the default weather city.
-
-INSTALL
+INSTALL / UPDATE
 1. Extract this ZIP.
-2. Upload all files to the root of a GitHub Pages repository.
-3. Enable GitHub Pages for the main branch and root folder.
-4. Open the HTTPS GitHub Pages URL in Chrome on the Redmi Note 9S.
-5. Use Chrome menu > Install app / Add to Home screen.
-6. Open the installed app and rotate to landscape.
+2. Upload all seven files to the root of your GitHub Pages repository, replacing old versions.
+3. Ensure GitHub Pages is serving the latest commit from the correct branch and root.
+4. On the phone, open the site in Chrome. If an installed PWA is showing old files, remove its old installation and clear the site's storage/cache, then install again from the updated HTTPS site.
+5. Open the app and use landscape orientation to match the reference.
 
-LIMITS
-Spotify currently opens Spotify; in-app playback controls are not connected.
-Weather refresh requires internet.
-A PWA cannot guarantee the phone remains awake forever; Android battery and screen timeout settings may override the Wake Lock request.
-
-V5 display update: enlarged main clock and greeting header for landscape screens.
-
-V6: Greeting text updates automatically by local time (Morning/Afternoon/Evening); greeting icon adapts to live weather conditions. Weather codes include drizzle, rain, showers, snow, fog, and thunderstorms.
-
-V7: Reference image match - pure black background, approved cream/sage palette and unchanged layout. Time greeting and weather icon adapt independently.
-
-V8 greeting schedule: Morning 01:00–11:59; Afternoon 12:00–16:59; Evening 17:00–00:59. Weather icon refreshes on load and every 30 minutes.
+LIMITATIONS
+- Weather uses Madrid as the default location. To use a different city, update the latitude/longitude constants in app.js.
+- Weather requires internet access.
+- Spotify is a shortcut; playback is not embedded in the clock.
+- Wake Lock cannot override Android screen timeout, battery saver, or manufacturer restrictions.

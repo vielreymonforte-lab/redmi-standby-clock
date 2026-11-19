@@ -1,11 +1,11 @@
 :root {
   color-scheme: dark;
   --bg: #000000;
-  --ivory: #E8E2D5;
-  --sage: #A8B99C;
+  --ivory: #F5F0E5;
+  --sage: #B4F09A;
   --champagne: #D5B878;
-  --muted: #89918F;
-  --ring: rgba(168,185,156,.78);
+  --muted: #8C8C8C;
+  --ring: rgba(180,240,154,.82);
 }
 * { box-sizing: border-box; }
 html, body { width:100%; height:100%; margin:0; }

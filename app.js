@@ -117,7 +117,7 @@ function renderTasks() {
   });
   const remaining = tasks.filter(task => !task.done).length;
   todoCount.textContent = remaining > 9 ? "9+" : String(remaining);
-  todoCount.hidden = remaining === 0;
+  todoCount.hidden = false;
   $("todoButton").setAttribute("aria-label", `${remaining} tasks remaining. Open to-do list`);
 }
 renderTasks();
