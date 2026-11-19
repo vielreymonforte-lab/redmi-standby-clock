@@ -3,48 +3,82 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#000000">
-  <meta name="description" content="Minimal Redmi StandBy clock">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
-  <title>Redmi StandBy</title>
+  <meta name="theme-color" content="#10151A">
+  <meta name="description" content="Apple Watch-inspired standby clock for Redmi Note 9S">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <title>StandBy Clock</title>
 </head>
 <body>
-  <main class="standby">
-    <header class="date-row" aria-label="Date">
-      <span id="weekday">SUNDAY</span>
-      <span id="date">15</span>
+  <main class="screen">
+    <header class="greeting" aria-live="polite">
+      <span class="greeting-symbol" id="greetingSymbol" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M12 39a20 20 0 0 1 40 0M32 5v7M11 16l5 5M53 16l-5 5M5 39h54M9 49h46M17 58h30"/></svg>
+      </span>
+      <span class="greeting-first">Good</span><span class="greeting-period" id="greetingPeriod">Evening</span>
     </header>
 
     <section class="clock-area" aria-label="Current time">
-      <div id="clock" class="clock">00:00</div>
+      <div class="clock" id="clock">
+        <span class="hours">21</span><span class="colon">:</span><span class="minutes">47</span>
+      </div>
     </section>
 
-    <section class="weather-pill" aria-label="Current weather in Madrid">
-      <span id="weather-icon" class="weather-icon" aria-hidden="true">⛅</span>
-      <span class="divider" aria-hidden="true"></span>
-      <span id="temperature" class="temperature">--°</span>
-      <span id="condition" class="condition">Getting weather…</span>
-    </section>
+    <nav class="dock" aria-label="Quick widgets">
+      <button class="widget date-widget" id="dateButton" type="button" aria-label="Today's date">
+        <span class="widget-icon">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="7" y="10" width="34" height="32" rx="4"/>
+            <path d="M15 6v9M33 6v9M8 19h32"/>
+            <circle cx="17" cy="27" r="1.5"/><circle cx="31" cy="27" r="1.5"/>
+            <circle cx="17" cy="35" r="1.5"/><circle cx="31" cy="35" r="1.5"/>
+          </svg>
+        </span>
+        <span class="widget-value" id="dateNumber">18</span>
+      </button>
 
-    <button class="settings-button" id="settings-open" aria-label="Clock settings">•••</button>
+      <button class="widget weather-widget" id="weatherButton" type="button" aria-label="Current weather; tap to refresh">
+        <span class="weather-symbol" id="weatherSymbol" aria-hidden="true">
+          <svg viewBox="0 0 56 48"><path d="M12 33h27a10 10 0 0 0 0-20 14 14 0 0 0-26-1A11 11 0 0 0 12 33Z"/><path class="moon" d="M43 3a12 12 0 0 0 10 17A14 14 0 0 1 43 3Z"/></svg>
+        </span>
+        <span class="widget-value" id="temperature">--°</span>
+      </button>
+
+      <a class="widget spotify-widget" href="https://open.spotify.com/" target="_blank" rel="noopener" aria-label="Open Spotify">
+        <span class="spotify-disc">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M8 17c10-3 22-2 31 4M10 25c8-2 18-1 26 4M12 33c7-2 14-1 21 3"/>
+          </svg>
+        </span>
+      </a>
+
+      <button class="widget todo-widget" id="todoButton" type="button" aria-label="Open to-do list">
+        <span class="todo-symbol">
+          <svg viewBox="0 0 52 52" aria-hidden="true">
+            <path d="m7 14 4 4 7-8M24 14h20M7 27l4 4 7-8M24 27h20M7 40l4 4 7-8M24 40h20"/>
+          </svg>
+        </span>
+        <span class="todo-badge" id="todoCount" hidden>0</span>
+      </button>
+    </nav>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </main>
 
-  <dialog id="settings-dialog">
-    <form id="settings-form" method="dialog">
-      <header class="dialog-header">
-        <h1>StandBy settings</h1>
-        <button class="close" value="cancel" aria-label="Close">×</button>
-      </header>
-      <label class="setting">
-        <span>24-hour clock</span>
-        <input id="format-24" type="checkbox" checked>
-      </label>
-      <p class="disclaimer">Weather is refreshed automatically for Madrid.</p>
-      <footer><button class="save" value="save">Save settings</button></footer>
+  <dialog id="todoDialog" class="todo-dialog">
+    <form method="dialog" class="dialog-heading">
+      <div><p>YOUR DAY</p><h2>To Do</h2></div>
+      <button class="close" aria-label="Close">×</button>
     </form>
+    <div id="taskList" class="task-list"></div>
+    <form id="addTaskForm" class="add-task">
+      <input id="newTask" type="text" maxlength="90" placeholder="Add a task…" autocomplete="off">
+      <button type="submit" aria-label="Add task">+</button>
+    </form>
+    <p class="save-note">Tasks are saved on this phone.</p>
   </dialog>
-  <script src="app.js"></script>
+
+  <script src="./app.js"></script>
 </body>
 </html>
