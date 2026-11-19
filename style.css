@@ -87,8 +87,8 @@ body {
 }
 .widget {
   position:relative;
-  width:clamp(54px,8.2vw,82px);
-  height:clamp(54px,8.2vw,82px);
+  width:clamp(64px,9.4vw,144px);
+  height:clamp(64px,9.4vw,144px);
   flex:0 0 auto;
   border:1.5px solid var(--ring);
   border-radius:50%;
@@ -172,7 +172,7 @@ body {
   .greeting { font-size:clamp(21px,5vh,42px); min-height:12%; }
   .clock { font-size:min(33vw,56vh); }
   .dock { min-height:15%; width:min(60%,900px); }
-  .widget { width:clamp(48px,9vh,66px); height:clamp(48px,9vh,66px); }
+  .widget { width:clamp(52px,11vh,82px); height:clamp(52px,11vh,82px); }
 }
 @media (orientation:portrait) {
   .dock { width:88%; min-width:0; gap:10px; }

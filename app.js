@@ -45,18 +45,18 @@ const weatherMap = {
 };
 
 const weatherIcons = {
-  clear: '<circle cx="32" cy="32" r="12/><path d="M32 5v8M32 51v8M5 32h8M51 32h8M13 13l6 6M45 45l6 6M51 13l-6 6M19 45l-6 6/>',
-  "mostly-clear": '<circle cx="27" cy="27" r="11/><path d="M27 5v6M27 43v6M5 27h6M43 27h6M12 12l5 5M37 37l5 5M42 12l-5 5/><path d="M25 43h25a9 9 0 0 0 0-18 13 13 0 0 0-23-2/>',
-  "partly-cloudy": '<path d="M25 13a11 11 0 0 0 11 17A13 13 0 0 1 25 13Z/><path d="M13 43h31a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-7 20Z/>',
-  cloudy: '<path d="M12 46h34a10 10 0 0 0 0-20 14 14 0 0 0-27-2 11 11 0 0 0-7 22Z/>',
-  fog: '<path d="M13 25h29M8 34h39M14 43h27/>',
-  drizzle: '<path d="M12 32h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m20 39-3 5m15-5-3 5m15-5-3 5/>',
-  rain: '<path d="M12 30h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m20 36-4 8m17-8-4 8m17-8-4 8/>',
-  "heavy-rain": '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m17 34-5 10m17-10-5 10m17-10-5 10/>',
-  snow: '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="M18 38h.1M31 40h.1M43 36h.1/>',
-  showers: '<path d="M12 30h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m20 36-4 8m17-8-4 8/>',
-  "heavy-showers": '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m17 34-5 10m17-10-5 10m17-10-5 10/>',
-  thunderstorm: '<path d="M12 29h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m29 32-7 11h8l-2 9 11-14h-8l3-6/>'
+  clear: '<circle cx="32" cy="32" r="12" fill="#D5B878"/><g stroke="#D5B878" stroke-width="4" stroke-linecap="round"><path d="M32 5v8M32 51v8M5 32h8M51 32h8M13 13l6 6M45 45l6 6M51 13l-6 6M19 45l-6 6"/></g>',
+  "mostly-clear": '<circle cx="27" cy="26" r="12" fill="#D5B878"/><g stroke="#D5B878" stroke-width="4" stroke-linecap="round"><path d="M27 5v7M27 40v7M5 26h7M42 26h7M12 12l5 5M37 37l5 5"/></g><path d="M22 47h29a10 10 0 0 0 0-20 14 14 0 0 0-24-3 11 11 0 0 0-5 23Z" fill="#E8E2D5"/>',
+  "partly-cloudy": '<circle cx="27" cy="25" r="12" fill="#D5B878"/><g stroke="#D5B878" stroke-width="4" stroke-linecap="round"><path d="M27 5v7M27 40v7M5 25h7M42 25h7M12 12l5 5M37 37l5 5"/></g><path d="M18 48h30a10 10 0 0 0 0-20 14 14 0 0 0-24-3 11 11 0 0 0-6 23Z" fill="#E8E2D5"/>',
+  cloudy: '<path d="M13 48h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/>',
+  fog: '<path d="M14 27h36M9 36h46M15 45h34" stroke="#E8E2D5" stroke-width="5" stroke-linecap="round"/>',
+  drizzle: '<path d="M13 32h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><path d="m20 41-3 6m15-6-3 6m15-6-3 6" stroke="#9EC9E8" stroke-width="4" stroke-linecap="round"/>',
+  rain: '<path d="M13 32h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><path d="m20 41-4 9m17-9-4 9m15-9-4 9" stroke="#8FC8EE" stroke-width="4" stroke-linecap="round"/>',
+  "heavy-rain": '<path d="M13 30h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><path d="m17 39-5 10m17-10-5 10m17-10-5 10" stroke="#8FC8EE" stroke-width="4" stroke-linecap="round"/>',
+  snow: '<path d="M13 30h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><g fill="#BFE4F5"><circle cx="18" cy="43" r="3"/><circle cx="32" cy="47" r="3"/><circle cx="45" cy="41" r="3"/></g>',
+  showers: '<path d="M13 30h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><path d="m20 40-4 9m17-9-4 9" stroke="#8FC8EE" stroke-width="4" stroke-linecap="round"/>',
+  "heavy-showers": '<path d="M13 30h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><path d="m17 39-5 10m17-10-5 10m17-10-5 10" stroke="#8FC8EE" stroke-width="4" stroke-linecap="round"/>',
+  thunderstorm: '<path d="M13 30h36a11 11 0 0 0 0-22 15 15 0 0 0-27-3 12 12 0 0 0-9 25Z" fill="#E8E2D5"/><path d="m33 34-9 13h9l-3 11 13-16h-9l3-7Z" fill="#D5B878"/>'
 };
 
 function setGreetingWeatherIcon(condition) {
