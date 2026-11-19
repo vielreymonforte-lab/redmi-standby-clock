@@ -163,12 +163,12 @@ body {
 .add-task button { width:44px; border:0; border-radius:12px; background:var(--sage); color:var(--bg); font-size:25px; cursor:pointer; }
 .save-note { color:var(--muted); font-size:11px; margin:12px 2px 0; }
 @media (orientation:landscape) {
-  .screen { padding-top:3.5vh; padding-bottom:4.5vh; }
+  .screen { padding-top:8.5vh; padding-bottom:9.5vh; }
   .greeting { min-height:13%; }
   .dock { min-height:14%; }
 }
 @media (max-height:460px) and (orientation:landscape) {
-  .screen { padding:2vh 5vw 3vh; }
+  .screen { padding:5vh 5vw 8vh; }
   .greeting { font-size:clamp(21px,5vh,42px); min-height:12%; }
   .clock { font-size:min(33vw,56vh); }
   .dock { min-height:15%; width:min(60%,900px); }
