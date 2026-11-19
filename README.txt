@@ -34,3 +34,11 @@ LIMITS
 Spotify currently opens Spotify; in-app playback controls are not connected.
 Weather refresh requires internet.
 A PWA cannot guarantee the phone remains awake forever; Android battery and screen timeout settings may override the Wake Lock request.
+
+V5 display update: enlarged main clock and greeting header for landscape screens.
+
+V6: Greeting text updates automatically by local time (Morning/Afternoon/Evening); greeting icon adapts to live weather conditions. Weather codes include drizzle, rain, showers, snow, fog, and thunderstorms.
+
+V7: Reference image match - pure black background, approved cream/sage palette and unchanged layout. Time greeting and weather icon adapt independently.
+
+V8 greeting schedule: Morning 01:00–11:59; Afternoon 12:00–16:59; Evening 17:00–00:59. Weather icon refreshes on load and every 30 minutes.

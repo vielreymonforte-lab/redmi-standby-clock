@@ -1,4 +1,4 @@
-const CACHE = "redmi-standby-weather-greeting-v2";
+const CACHE = "redmi-standby-clock-v8-time-weather";
 const FILES = ["./","./index.html","./style.css","./app.js","./manifest.webmanifest","./icon.svg"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)));

@@ -16,16 +16,9 @@ function updateClock() {
   const hh = String(hour).padStart(2, "0");
   const mm = String(now.getMinutes()).padStart(2, "0");
   clock.innerHTML = `<span class="hours">${hh}</span><span class="colon">:</span><span class="minutes">${mm}</span>`;
-  if (hour >= 5 && hour < 12) {
-    greetingPeriod.textContent = "Morning";
-    greetingSymbol.innerHTML = '<svg viewBox="0 0 64 64"><path d="M12 39a20 20 0 0 1 40 0M32 5v7M11 16l5 5M53 16l-5 5M5 39h54M9 49h46M17 58h30"/></svg>';
-  } else if (hour >= 12 && hour < 18) {
-    greetingPeriod.textContent = "Afternoon";
-    greetingSymbol.innerHTML = '<svg viewBox="0 0 64 64"><circle cx="32" cy="30" r="12"/><path d="M32 5v7M32 48v8M7 30h8M49 30h8M14 12l6 6M44 42l6 6M50 12l-6 6M20 42l-6 6"/></svg>';
-  } else {
-    greetingPeriod.textContent = "Evening";
-    greetingSymbol.innerHTML = '<svg viewBox="0 0 64 64"><path d="M46 9a23 23 0 1 0 9 40A24 24 0 0 1 46 9Z"/></svg>';
-  }
+  if (hour >= 1 && hour <= 11) greetingPeriod.textContent = "Morning";
+  else if (hour >= 12 && hour <= 16) greetingPeriod.textContent = "Afternoon";
+  else greetingPeriod.textContent = "Evening"; // 17:00–00:59
   dateNumber.textContent = String(now.getDate());
 }
 updateClock();
@@ -46,24 +39,24 @@ const weatherMap = {
   45: "fog", 48: "fog",
   51: "drizzle", 53: "drizzle", 55: "drizzle",
   61: "rain", 63: "rain", 65: "heavy-rain",
-  71: "snow", 73: "snow", 75: "snow",
-  80: "showers", 81: "showers", 82: "heavy-showers",
-  95: "thunderstorm", 96: "thunderstorm", 99: "thunderstorm"
+  56: "drizzle", 57: "drizzle", 71: "snow", 73: "snow", 75: "snow", 77: "snow",
+  66: "rain", 67: "heavy-rain", 80: "showers", 81: "showers", 82: "heavy-showers",
+  85: "snow", 86: "snow", 95: "thunderstorm", 96: "thunderstorm", 99: "thunderstorm"
 };
 
 const weatherIcons = {
-  clear: '<circle cx="32" cy="32" r="12"/><path d="M32 5v8M32 51v8M5 32h8M51 32h8M13 13l6 6M45 45l6 6M51 13l-6 6M19 45l-6 6"/>',
-  "mostly-clear": '<circle cx="27" cy="27" r="11"/><path d="M27 5v6M27 43v6M5 27h6M43 27h6M12 12l5 5M37 37l5 5M42 12l-5 5"/><path d="M25 43h25a9 9 0 0 0 0-18 13 13 0 0 0-23-2"/>',
-  "partly-cloudy": '<path d="M25 13a11 11 0 0 0 11 17A13 13 0 0 1 25 13Z"/><path d="M13 43h31a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-7 20Z"/>',
-  cloudy: '<path d="M12 46h34a10 10 0 0 0 0-20 14 14 0 0 0-27-2 11 11 0 0 0-7 22Z"/>',
-  fog: '<path d="M13 25h29M8 34h39M14 43h27"/>',
-  drizzle: '<path d="M12 32h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="m20 39-3 5m15-5-3 5m15-5-3 5"/>',
-  rain: '<path d="M12 30h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="m20 36-4 8m17-8-4 8m17-8-4 8"/>',
-  "heavy-rain": '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="m17 34-5 10m17-10-5 10m17-10-5 10"/>',
-  snow: '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="M18 38h.1M31 40h.1M43 36h.1"/>',
-  showers: '<path d="M12 30h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="m20 36-4 8m17-8-4 8"/>',
-  "heavy-showers": '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="m17 34-5 10m17-10-5 10m17-10-5 10"/>',
-  thunderstorm: '<path d="M12 29h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z"/><path d="m29 32-7 11h8l-2 9 11-14h-8l3-6"/>'
+  clear: '<circle cx="32" cy="32" r="12/><path d="M32 5v8M32 51v8M5 32h8M51 32h8M13 13l6 6M45 45l6 6M51 13l-6 6M19 45l-6 6/>',
+  "mostly-clear": '<circle cx="27" cy="27" r="11/><path d="M27 5v6M27 43v6M5 27h6M43 27h6M12 12l5 5M37 37l5 5M42 12l-5 5/><path d="M25 43h25a9 9 0 0 0 0-18 13 13 0 0 0-23-2/>',
+  "partly-cloudy": '<path d="M25 13a11 11 0 0 0 11 17A13 13 0 0 1 25 13Z/><path d="M13 43h31a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-7 20Z/>',
+  cloudy: '<path d="M12 46h34a10 10 0 0 0 0-20 14 14 0 0 0-27-2 11 11 0 0 0-7 22Z/>',
+  fog: '<path d="M13 25h29M8 34h39M14 43h27/>',
+  drizzle: '<path d="M12 32h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m20 39-3 5m15-5-3 5m15-5-3 5/>',
+  rain: '<path d="M12 30h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m20 36-4 8m17-8-4 8m17-8-4 8/>',
+  "heavy-rain": '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m17 34-5 10m17-10-5 10m17-10-5 10/>',
+  snow: '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="M18 38h.1M31 40h.1M43 36h.1/>',
+  showers: '<path d="M12 30h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m20 36-4 8m17-8-4 8/>',
+  "heavy-showers": '<path d="M12 28h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m17 34-5 10m17-10-5 10m17-10-5 10/>',
+  thunderstorm: '<path d="M12 29h32a9 9 0 0 0 0-18 13 13 0 0 0-24-2 10 10 0 0 0-8 20Z/><path d="m29 32-7 11h8l-2 9 11-14h-8l3-6/>'
 };
 
 function setGreetingWeatherIcon(condition) {
@@ -93,6 +86,7 @@ async function refreshWeather() {
   }
 }
 refreshWeather();
+setInterval(refreshWeather, 30 * 60 * 1000); // Refresh weather every 30 minutes
 $("weatherButton").addEventListener("click", refreshWeather);
 
 let tasks = [];
